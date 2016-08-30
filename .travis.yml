@@ -43,6 +43,19 @@ matrix:
           sources: ['ubuntu-toolchain-r-test']
           packages: *gcc5_pkgs
 
+    # 32 bit GCC/Coverage/Autobahn
+    - compiler: gcc
+      env:
+        - GCC_VER=5
+        - VARIANT=coverage
+        - ADDRESS_MODEL=32
+        - BUILD_SYSTEM=cmake
+        - PATH=$PWD/cmake/bin:$PATH
+      addons: &ao_gcc5
+        apt:
+          sources: ['ubuntu-toolchain-r-test']
+          packages: *gcc5_pkgs
+
     # Clang/UndefinedBehaviourSanitizer
     - compiler: clang
       env:
